@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.time.Instant;
 import java.util.UUID;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @Table(name = "channels")
@@ -13,8 +15,9 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Channel {
     @Id
-    @GeneratedValue
     @Column(name = "channel_id", nullable = false, updatable = false)
+    @GeneratedValue
+    @JdbcTypeCode(SqlTypes.CHAR)
     private UUID channelId;
 
     @Column(length = 6, nullable = false, unique = true)

@@ -13,7 +13,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @IdClass(ChannelMemberId.class)
 public class ChannelMember {
-
     @Id
     @Column(name = "channel_id", nullable = false)
     private UUID channelId;
