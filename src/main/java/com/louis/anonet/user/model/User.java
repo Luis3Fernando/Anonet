@@ -21,9 +21,13 @@ public class User {
     @Column(name = "created_at", nullable = false)
     private Instant createdAt;
 
+    @Column(name = "last_active", nullable = false)
+    private Instant lastActive;
+
     @PrePersist
     public void prePersist() {
         if (userId == null) userId = UUID.randomUUID();
         if (createdAt == null) createdAt = Instant.now();
+        if (lastActive == null) lastActive = Instant.now();
     }
 }
